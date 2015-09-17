@@ -9,14 +9,19 @@
   </head>
   <body>
     <div class="container">
+      <div class= "row">
       <h1>Pig Dice!</h1>
-      <button id="roll-dice">Roll Dice</button>
-      <button id="end-turn">End Turn</button>
+      <div class="roll-button">
+        <button class="btn btn-success btn-lg" id="roll-dice">Roll Dice</button>
+      </div>
+      <div class="endturn-button">
+        <button class="btn btn-danger btn-lg" id="end-turn">End Turn</button>
+      </div>
       <h2 id="whose-turn"></h2>
       <div class="scores">
-        <h3 id="slow-roll">You rolled a: <img id="roll-score" src=""/></h3>
+        <h3 id="slow-roll">You rolled a: <center><img id="roll-score" src=""/></center></h3>
         <br>
-        <h3 id="turn-score"></h3>
+        <h3>Turn Score: <span id="turn-score"></span></h3>
         <br>
         <br>
         <h4>Player 1 total score: <span id="player1-total-score"></span></h4>
@@ -24,5 +29,6 @@
         <h4>Player 2 total score: <span id="player2-total-score"></span></h4>
       </div>
     </div>
+      </div>
   </body>
 </html>

@@ -1,6 +1,5 @@
 var rollDice = function() {
-  var randomNumber = Math.round(Math.random() * 5 + 1)
-  return randomNumber
+  return Math.round(Math.random() * 5 + 1)
 }
 
 var playerOneScore = 0
@@ -37,8 +36,8 @@ $(document).ready(function() {
   $("button#roll-dice").click(function() {
     var newScore = rollPigDice()
     var imgSrc = "img/" + newScore[1] + ".gif"
-    $("#roll-score").attr("src", imgSrc)
-    $(".scores h3#turn-score").text(newScore[0])
+    $("#roll-score").hide().fadeIn().attr("src", imgSrc)
+    $("#turn-score").text(newScore[0])
     if (counter % 2 !== 0 && newScore[0] === 0) {
       $("h2#whose-turn").text("Player 2 is on a roll!")
     } else if (counter % 2 === 0 && newScore[0] === 0){
