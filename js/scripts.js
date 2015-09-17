@@ -16,7 +16,7 @@ var rollPigDice = function() {
   else {
     turnScore += diceRoll
   }
-  return turnScore
+  return [turnScore, diceRoll]
 }
 
 
@@ -36,10 +36,12 @@ var counter = 0
 $(document).ready(function() {
   $("button#roll-dice").click(function() {
     var newScore = rollPigDice()
-    $(".scores h3#turn-score").text(newScore)
-    if (counter % 2 !== 0 && newScore === 0) {
+    var imgSrc = "img/" + newScore[1] + ".gif"
+    $("#roll-score").attr("src", imgSrc)
+    $(".scores h3#turn-score").text(newScore[0])
+    if (counter % 2 !== 0 && newScore[0] === 0) {
       $("h2#whose-turn").text("Player 2 is on a roll!")
-    } else if (counter % 2 === 0 && newScore === 0){
+    } else if (counter % 2 === 0 && newScore[0] === 0){
       $("h2#whose-turn").text("Player 1 is on a roll!")
     }
   })
@@ -50,11 +52,11 @@ $(document).ready(function() {
     if (counter % 2 !== 0) {
       addPlayerOneScore()
       $("h2#whose-turn").text("Player 2 is on a roll!")
-      $(".scores h4#player1-total-score").text("Player 1 total score: " + playerOneScore)
+      $("#player1-total-score").text(playerOneScore)
     } else {
       addPlayerTwoScore()
       $("h2#whose-turn").text("Player 1 is on a roll!")
-      $(".scores h4#player2-total-score").text("Player 2 total score: " + playerTwoScore)
+      $("#player2-total-score").text(playerTwoScore)
     }
   })
 
